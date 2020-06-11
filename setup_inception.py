@@ -1,4 +1,4 @@
-## Modified by Nicholas Carlini to match model structure for attack code.
+## Modified by Yanmao Man to match model structure for attack code.
 ## Original copyright license follows.
 
 
@@ -71,6 +71,8 @@ class InceptionModel:
     resized = tf.image.resize_images(img, size=[299, 299]) # inception's size
     batch_size = tf.shape(img, out_type=tf.int32)[0]
 
+    ## To enable batch feed-forwards.
+    ## See https://stackoverflow.com/a/57650506/5858902
     softmax_tensor = tf.import_graph_def(
       self.graph.as_graph_def(),
       input_map={'import/input:0': tf.cast(resized, tf.float32),

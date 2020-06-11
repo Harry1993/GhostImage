@@ -1,11 +1,3 @@
-## setup_cifar.py -- cifar data and model loading code
-##
-## Copyright (C) 2016, Nicholas Carlini <nicholas@carlini.com>.
-##
-## This program is licenced under the BSD 2-Clause licence,
-## contained in the LICENCE file in this directory.
-
-
 import tensorflow.compat.v1 as tf
 import numpy as np
 import os
