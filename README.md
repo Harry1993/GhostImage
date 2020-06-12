@@ -9,7 +9,7 @@ GhostImage attacks [[PDF](http://u.arizona.edu/~yman/papers/ghostimage_raid20.pd
          Image Classification Systems},
   author={Man, Yanmao and Li, Ming and Gerdes, Ryan},
   booktitle={Proceedings of the 23rd International Symposium on Research in
-             Attacks, Intrusions and Defenses (USENIX RAID 2020))},
+             Attacks, Intrusions and Defenses (USENIX RAID 2020)},
   year={2020}
 }
 ```
@@ -26,6 +26,11 @@ numpy == 1.18.5
 tensorflow == 2.1.0
 tensorflow-probability == 0.10.0
 ```
+
+Our core module (mainly `rgb_attack.py`) was originally written in TensorFlow
+1.x, so it should be able to run with TF 1.x by changing `import
+tensorflow.compat.v1 as tf` to `import tensorflow as tf` at the beginnning of
+each script, and removing the next line `tf.disable_eager_execution()`.
 
 ### Pre-trained models
 
