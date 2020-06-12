@@ -36,12 +36,16 @@ def single_image(
                   [0,   0.5, 0],
                   [0,     0, 1]]).astype(np.float32)
     const_dig, const_ana, const_ill = 8.9, 6.7, -7.8 # a, b, c_t in Eq. 6
-    const_rho, ana_intensity, env_ill, digital_intensity = rho, ana, env, dig
-    channel = {'color_matrix': H, 'const_dig': const_dig,
-            'const_ana': const_ana, 'ana_intensity': ana_intensity,
-            'digital_intensity': digital_intensity,
-            'const_ill': const_ill, 'const_rho':const_rho,
-            'env_ill': env_ill}
+    const_rho, ana_intensity, env_ill, dig_intensity = rho, ana, env, dig
+    ## channel parameters in a dictionary
+    channel = {'color_matrix': H,               # H_c
+               'const_dig': const_dig,          # a
+               'const_ana': const_ana,          # b
+               'ana_intensity': ana_intensity,  # P_a
+               'dig_intensity': dig_intensity,  # T_d
+               'const_ill': const_ill,          # c_t
+               'const_rho':const_rho,           # rho
+               'env_ill': env_ill}              # I_env
 
     with tf.Session() as sess:
 
@@ -82,7 +86,8 @@ def single_image(
                 max_iterations=max_iterations, confidence=confidence,
                 initial_const=initial_const*batch_size, targeted=targeted,
                 num_rows=num_rows, num_columns=num_columns, variance=variance,
-                positive_mean=positive_mean, max_inits=max_inits, channel=channel)
+                positive_mean=positive_mean, max_inits=max_inits,
+                channel=channel)
 
         ## attack: it may take some time
         rslts = attack.attack(ben_img, tar_lab)

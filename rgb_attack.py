@@ -69,7 +69,7 @@ class ManRGB:
                 const_dig         = channel['const_dig']
                 const_ana         = channel['const_ana']
                 ana_intensity     = channel['ana_intensity']
-                digital_intensity = channel['digital_intensity']
+                digital_intensity = channel['dig_intensity']
                 const_ill         = channel['const_ill']
                 const_rho         = channel['const_rho']
                 env_ill           = channel['env_ill']
