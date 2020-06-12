@@ -1,9 +1,4 @@
-## test_attack.py -- some attack examples
-##
-## Copyright (C) 2020, Yanmao Man <yman@email.arizona.edu>.
-##
-## This program is licenced under the BSD 2-Clause licence,
-## contained in the LICENCE file in this directory.
+## Author: Yanmao Man <yman@email.arizona.edu>.
 
 import tensorflow.compat.v1 as tf
 tf.disable_eager_execution()
